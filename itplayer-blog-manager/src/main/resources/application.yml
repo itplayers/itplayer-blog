@@ -1,0 +1,35 @@
+server:
+  port: 8081
+spring:
+  cloud: 
+    config: 
+      discovery: 
+        enabled: true
+        service-id: bms-microservice-config
+      profile: dev
+      label: master
+  application:
+    name: bms-microservice-account
+  
+  jackson:
+    # jackson 日期格式
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  datasource:
+    platform: MySQL #数据类型
+    type:  com.alibaba.druid.pool.DruidDataSource
+mybatis-plus:
+  mapper-locations: com.itplayer/**/*Mapper.xml
+# mapper-locations: classpath:mapper/**/*.xml
+#  type-aliases-package: com.**.entity
+logging:
+  level:
+    org:
+      springframework: WARN
+      spring:
+        springboot:
+          dao: DEBUG
+#自定义
+web:
+  #测试报告文件地址
+  reportPath: /test
